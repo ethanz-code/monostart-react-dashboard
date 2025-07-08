@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '@/components/header';
-import HeroSection from '@/components/hero-section';
-import Footer from '@/components/footer';
+import Header from '@/components/home/header';
+import HeroSection from '@/components/home/hero-section';
+import Footer from '@/components/home/footer';
 
 const Home: React.FC = () => {
   return (

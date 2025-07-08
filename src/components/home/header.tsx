@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
-import { ModeToggle } from './mode-toggle';
+import { ModeToggle } from '../theme/mode-toggle';
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [

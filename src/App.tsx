@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouterProvider } from 'react-router';
-import { ThemeProvider } from './components/theme-provider';
+import { ThemeProvider } from './components/theme/theme-provider';
 import router from './router';
 
 const App: React.FC = () => {
