@@ -14,7 +14,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
 
     /* Linting */
     /* 项目使用了 eslint + oxlint，可以禁用 tsc 严格类型检测 */
@@ -23,5 +23,10 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noUncheckedSideEffectImports": true
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
