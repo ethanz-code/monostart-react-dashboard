@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function Component() {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2 justify-center px-4">
       <Badge>
         <ZapIcon className="-ms-0.5 opacity-60" size={12} aria-hidden="true" />
         Badge 1

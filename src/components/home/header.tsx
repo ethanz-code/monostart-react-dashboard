@@ -14,6 +14,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 import { ModeToggle } from '../theme/mode-toggle';
+import { NavLink } from 'react-router';
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -65,7 +66,7 @@ const navigationLinks = [
 
 export default function Component() {
   return (
-    <header className="border-b px-4 md:px-6">
+    <header className="px-4 md:px-6">
       <div className="flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">
@@ -100,7 +101,7 @@ export default function Component() {
                 </svg>
               </Button>
             </PopoverTrigger>
-            <PopoverContent align="start" className="w-64 p-1 md:hidden">
+            <PopoverContent align="start" className="w-80 max-w-[calc(100vw-2rem)] p-1 md:hidden">
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
@@ -163,7 +164,13 @@ export default function Component() {
                           {link.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="data-[motion=from-end]:slide-in-from-right-16! data-[motion=from-start]:slide-in-from-left-16! data-[motion=to-end]:slide-out-to-right-16! data-[motion=to-start]:slide-out-to-left-16! z-50 p-1">
-                          <ul className={cn(link.type === 'description' ? 'min-w-64' : 'min-w-48')}>
+                          <ul
+                            className={cn(
+                              link.type === 'description'
+                                ? 'min-w-48 max-w-64'
+                                : 'min-w-40 max-w-48',
+                            )}
+                          >
                             {link.items.map((item, itemIndex) => (
                               <li key={itemIndex}>
                                 <NavigationMenuLink href={item.href} className="py-1.5">
@@ -231,14 +238,14 @@ export default function Component() {
           </div>
         </div>
         {/* Right side */}
-        <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="text-sm">
-            <a href="#">Sign In</a>
+        <div className="flex items-center gap-1 sm:gap-2">
+          <Button asChild variant="ghost" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
+            <NavLink to="/sign_in">Sign In</NavLink>
           </Button>
-          <Button asChild size="sm" className="text-sm">
-            <a href="#">Get Started</a>
+          <Button asChild size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
+            <NavLink to="/sign_up">Get Started</NavLink>
           </Button>
-          <div className="border-l h-6 mx-2 text-muted-foreground"></div>
+          <div className="border-l h-6 mx-1 sm:mx-2 text-muted-foreground"></div>
           <ModeToggle />
         </div>
       </div>

@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router';
-import Home from '../views/Home';
-import Login from '../views/Login';
-import Register from '../views/Register';
+import Home from '@/views/Home';
+import SignIn from '@/views/auth/SignIn';
+import SignUp from '@/views/auth/SignUp';
+import ForgotPassword from '@/views/auth/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -9,12 +10,16 @@ const router = createBrowserRouter([
     Component: Home,
   },
   {
-    path: '/login',
-    Component: Login,
+    path: '/sign_in',
+    Component: SignIn,
   },
   {
-    path: '/register',
-    Component: Register,
+    path: '/sign_up',
+    Component: SignUp,
+  },
+  {
+    path: '/forgot_password',
+    Component: ForgotPassword,
   },
   {
     path: '/dashboard',
