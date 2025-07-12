@@ -7,19 +7,50 @@ import { NavLink } from 'react-router';
 import { PhoneInput, CodeInput, PasswordInput } from '@/form-fields/LoginFields';
 import AuthLayout from '@/views/auth/AuthLayout';
 import { validateSignInForm } from '@/utils/validation';
+import { RotateCw } from 'lucide-react';
 
 // 微信二维码组件
 function WeChatQRCode({ text }: { text: string }) {
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [qrText, setQrText] = useState(text);
+
   useEffect(() => {
     const canvas = document.getElementById('canvas-qrcode');
-    QRCode.toCanvas(canvas, text, {
+    QRCode.toCanvas(canvas, qrText, {
       margin: 2,
     });
-  }, [text]);
+  }, [qrText]);
+
+  useEffect(() => {
+    setShowOverlay(false);
+    const timer = setTimeout(
+      () => {
+        setShowOverlay(true);
+      },
+      0.5 * 60 * 1000,
+    ); // 3分钟
+
+    return () => clearTimeout(timer);
+  }, [qrText]);
+
+  const handleRefresh = () => {
+    setQrText(text + '?t=' + Date.now());
+    setShowOverlay(false);
+  };
 
   return (
-    <div className="bg-white border rounded-lg overflow-hidden mb-4">
+    <div className="bg-white rounded-lg overflow-hidden mb-4 relative">
       <canvas id="canvas-qrcode"></canvas>
+      {showOverlay && (
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <button
+            onClick={handleRefresh}
+            className="bg-white/90 backdrop-blur-sm rounded-full p-4 hover:bg-white transition-all duration-200 hover:scale-105"
+          >
+            <RotateCw className="w-6 h-6 text-gray-700" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
