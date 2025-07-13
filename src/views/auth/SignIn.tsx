@@ -5,7 +5,7 @@ import wechatIcon from '@/assets/images/wechat.svg';
 import { cn } from '@/lib/utils';
 import { NavLink } from 'react-router';
 import { PhoneInput, CodeInput, PasswordInput } from '@/form-fields/LoginFields';
-import AuthLayout from '@/views/auth/AuthLayout';
+import AuthLayout from '@/components/layout/AuthLayout';
 import { validateSignInForm } from '@/utils/validation';
 import { RotateCw } from 'lucide-react';
 
@@ -27,7 +27,7 @@ function WeChatQRCode({ text }: { text: string }) {
       () => {
         setShowOverlay(true);
       },
-      0.5 * 60 * 1000,
+      3 * 60 * 1000,
     ); // 3分钟
 
     return () => clearTimeout(timer);

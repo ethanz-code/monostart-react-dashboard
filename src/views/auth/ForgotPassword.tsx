@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { NavLink } from 'react-router';
-import AuthLayout from '@/views/auth/AuthLayout';
+import AuthLayout from '@/components/layout/AuthLayout';
 import { EmailInput, CodeInput } from '@/form-fields/LoginFields';
 import { validateForgotPasswordForm, validateEmail } from '@/utils/validation';
 
