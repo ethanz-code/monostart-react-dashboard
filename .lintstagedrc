@@ -1,7 +1,10 @@
 {
-  "*.{js,jsx,ts,tsx,json,css,md}": [
+  "*.{js,jsx,ts,tsx}": [
     "eslint --fix",
     "oxlint --fix -D correctness",
+    "prettier --write"
+  ],
+  "*.{json,css,md}": [
     "prettier --write"
   ]
 }

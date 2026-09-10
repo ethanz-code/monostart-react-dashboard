@@ -12,7 +12,7 @@ const createDashboardRoute = (path: string, componentName: string) => ({
     {
       index: true,
       lazy: async () => {
-        return { Component: (await import(`../views/dashboard/${componentName}`)).default };
+        return { Component: (await import(`../views/dashboard/${componentName}.tsx`)).default };
       },
     },
   ],
